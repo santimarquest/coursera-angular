@@ -75,7 +75,7 @@ function MenuSearchService($http, ApiBasePath) {
   			 var foundItems = [];
 
 	    	 for (var i=0; i < items.length; i++) {
-	    	 	var name = result[i].name;
+	    	 	var name = items[i].name;
 	    	 	if (name.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1) {
 	    	 		foundItems.push(result[i].name);
 	    	 	}
