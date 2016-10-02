@@ -27,9 +27,9 @@ function FoundItemsDirective() {
 
 function FoundItemsDirectiveLink(scope, element, attrs, controller) {
 
-	scope.$watch('list.items', function () {
+	scope.$watch('element.items', function () {
 
-	items = list.items;		
+	element.items = attr.items;		
     
   });
 
