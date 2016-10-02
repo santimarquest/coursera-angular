@@ -17,27 +17,17 @@ function FoundItemsDirective() {
     },
     controller: FoundItemsDirectiveController,
     controllerAs: 'list',
-    bindToController: true,
-    link : FoundItemsDirectiveLink,
-    transclude: true
+    bindToController: true
   };
 
   return ddo;
 }
 
-function FoundItemsDirectiveLink(scope, element, attrs, controller) {
-
-	scope.$watch('element.items', function () {
-
-	element.items = attr.items;		
-    
-  });
-
-}
-
 
 function FoundItemsDirectiveController() {
   var list = this;
+
+  list.items = [];
 
  list.onRemove = function(index) {
  	list.items.splice(index, 1);
