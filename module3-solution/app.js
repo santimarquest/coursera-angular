@@ -17,17 +17,30 @@ function FoundItemsDirective() {
     },
     controller: FoundItemsDirectiveController,
     controllerAs: 'list',
-    bindToController: true
+    bindToController: true,
+    link : FoundItemsDirectiveLink
   };
 
   return ddo;
+}
+
+function FoundItemsDirectiveLink(scope, element, attrs, controller) {
+
+	scope.$watch('list.items', function () {
+
+		list.items = element.found;
+    
+  });
+
 }
 
 
 function FoundItemsDirectiveController() {
   var list = this;
 
- list.items = narrowit.found;
+  var list.items = [];
+
+ //list.items = narrowit.found;
 
  list.onRemove = function(index) {
  	list.items.splice(index, 1);
