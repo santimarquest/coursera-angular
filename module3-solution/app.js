@@ -8,24 +8,24 @@
 
   NarrowItDownController.$inject = ['MenuSearchService'];
   function NarrowItDownController(MenuSearchService) {
-    var ctrl = this;
+    var narrowit = this;
 
-    ctrl.searchTerm = '';
+    narrowit.searchTerm = '';
 
-    ctrl.searchMenu = function (searchTerm) {
+    narrowit.searchMenu = function (searchTerm) {
       if (searchTerm === '') {
-        ctrl.menuItems = [];
+        narrowit.menuItems = [];
         return;
       }
 
       MenuSearchService.getMatchedMenuItems(searchTerm)
         .then(function (foundItems) {
-          ctrl.menuItems = foundItems;
+          narrowit.menuItems = foundItems;
         });
     };
 
-    ctrl.dontWantThisOne = function (index) {
-      ctrl.menuItems.splice(index, 1);
+    narrowit.dontWantThisOne = function (index) {
+      narrowit.menuItems.splice(index, 1);
     };
   }
 
@@ -33,9 +33,9 @@
 
   MenuSearchService.$inject = ['$http'];
   function MenuSearchService($http) {
-    var srvc = this;
+    var service = this;
 
-    srvc.getMatchedMenuItems = function (searchTerm) {
+    service.getMatchedMenuItems = function (searchTerm) {
       return $http({
         url: 'https://davids-restaurant.herokuapp.com/menu_items.json'
       })
@@ -57,7 +57,7 @@
         foundItems: '<',
         onRemove: '&'
       },
-      templateUrl: 'directives/found-items-directive.html',
+      templateUrl: 'founditems.html',
       controller: FoundItemsDirectiveController,
       bindToController: true,
       controllerAs: 'dishesFound'
