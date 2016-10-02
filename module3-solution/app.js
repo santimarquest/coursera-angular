@@ -23,11 +23,12 @@ function FoundItemsDirective() {
   return ddo;
 }
 
-
-function FoundItemsDirectiveController() {
+FoundItemsDirectiveController.$inject = ['MenuSearchService'];
+function FoundItemsDirectiveController(MenuSearchService) {
   var list = this;
 
-  list.items = [];
+  list.items = function (searchTerm) {
+  	return MenuSearchService.getMatchedMenuItems(searchTerm);
 
  list.onRemove = function(index) {
  	list.items.splice(index, 1);
