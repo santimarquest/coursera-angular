@@ -55,32 +55,22 @@ var narrowit = this;
     };
   }
 
-MenuSearchService.$inject = ['$http', 'ApiBasePath'];
-function MenuSearchService($http, ApiBasePath) {
+
+	MenuSearchService.$inject = ['$http', 'ApiBasePath'];
+  function MenuSearchService($http, ApiBasePath) {
   var service = this;
 
-	service.getMatchedMenuItems = function(searchTerm) {
-
-	 	return $http({
-	      method: "GET",
-	      url: (ApiBasePath + "/menu_items.json")
-	    }).then(function (result) {
-
-	    	 var items = result.data.menu_items;
-  			 var foundItems = [];
-
-	    	 for (var i=0; i < items.length; i++) {
-	    	 	var name = items[i].name;
-	    	 	if (name.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1) {
-	    	 		foundItems.push(name);
-	    	 	}
-	    	 }
-	    // return processed items
-	    return foundItems;
-		});
-
-	}
-
-}
-
+    service.getMatchedMenuItems = function (searchTerm) {
+      return $http({
+        url:ApiBasePath + "/menu_items.json"
+      })
+        .then(function (result) {
+          var dishes = result.data.menu_items;
+          return dishes.filter(function (dish) {
+            return dish.description.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1;
+          });
+        });
+    };
+  }
+  
 })();
