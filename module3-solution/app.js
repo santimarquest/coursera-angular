@@ -9,54 +9,51 @@ angular.module('NarrowItDownApp', [])
 
 
 function FoundItemsDirective() {
-  var ddo = {
-    templateUrl: 'foundItemsList.html',
-    restrict: 'E',
-    scope: {
-      items: '<',
-      onRemove: '&'
-    },
-    controller: FoundItemsDirectiveController,
-    controllerAs: 'list',
-    bindToController: true
-  };
+    var ddo = {
+      restrict: 'E',
+      scope: {
+        foundItems: '<',
+        onRemove: '&'
+      },
+      templateUrl: 'foundItemsList.html',
+      controller: FoundItemsDirectiveController,
+      bindToController: true,
+      controllerAs: 'list'
+    };
+    return ddo;
+  }
 
-  return ddo;
-}
+  function FoundItemsDirectiveController() {
+    var list = this;
 
-function FoundItemsDirectiveController() {
-  var list = this;
-
-  list.dontWantThisOne = function (index) {
+    list.dontWantThisOne = function (index) {
       list.onRemove({index: index});
     };
-}
+
+  }
 
 NarrowItDownController.$inject = ['MenuSearchService'];
 function NarrowItDownController(MenuSearchService) {
-  var narrowit = this;
+var narrowit = this;
 
-  narrowit.searchterm = '';
+    narrowit.searchTerm = '';
 
-  narrowit.found = function (searchTerm) {
-
-     if (searchTerm === '') {
-        narrowit.items = [];
+    narrowit.found = function (searchTerm) {
+      if (searchTerm === '') {
+        narrowit.menuItems = [];
         return;
       }
 
       MenuSearchService.getMatchedMenuItems(searchTerm)
         .then(function (foundItems) {
-          narrowit.items = foundItems;
+          narrowit.menuItems = foundItems;
         });
     };
 
-    narrowit.removeItem = function(index) {
-  list.items.splice(index, 1);
-
-}
-
-}
+    ctrl.dontWantThisOne = function (index) {
+      narrowit.menuItems.splice(index, 1);
+    };
+  }
 
 MenuSearchService.$inject = ['$http', 'ApiBasePath'];
 function MenuSearchService($http, ApiBasePath) {
