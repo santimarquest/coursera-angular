@@ -61,21 +61,21 @@
       templateUrl: 'founditems.html',
       controller: FoundItemsDirectiveController,
       bindToController: true,
-      controllerAs: 'dishesFound'
+      controllerAs: 'found'
     };
     return ddo;
   }
 
   function FoundItemsDirectiveController() {
-    var dishesFound = this;
+    var found = this;
 
-    dishesFound.dontWantThisOne = function (index) {
-      dishesFound.onRemove({index: index});
+    found.dontWantThisOne = function (index) {
+      found.onRemove({index: index});
     };
 
-    dishesFound.noDishes = function () {
-      return dishesFound.foundItems &&
-        dishesFound.foundItems.length === 0;
+    found.noDishes = function () {
+      return found.foundItems &&
+        found.foundItems.length === 0;
     };
   }
 })();

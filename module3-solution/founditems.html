@@ -7,12 +7,12 @@
         <th>Description</th>
       </tr>
     </thead>
-    <tbody ng-repeat="item in dishesFound.foundItems">
+    <tbody ng-repeat="item in found.foundItems">
       <tr>
         <td>{{item.name}}</td>
         <td>({{item.short_name}})</td>
         <td>{{item.description}}</td>
-        <td><button class="btn btn-danger" ng-click="dishesFound.dontWantThisOne($index)">
+        <td><button class="btn btn-danger" ng-click="found.dontWantThisOne($index)">
               Don't Want This One
             </button>
         </td>
@@ -20,7 +20,7 @@
     </tbody>
   </table>
 
-<div class="row" ng-show="dishesFound.noDishes()">
+<div class="row" ng-show="found.noDishes()">
   <div class="well">
     <h3>Nothing found</h3>
   </div>
