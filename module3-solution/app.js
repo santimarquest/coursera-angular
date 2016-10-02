@@ -34,6 +34,7 @@ function FoundItemsDirectiveController(MenuSearchService) {
  	list.items.splice(index, 1);
  }
 }
+}
 
 NarrowItDownController.$inject = ['MenuSearchService'];
 function NarrowItDownController(MenuSearchService) {
