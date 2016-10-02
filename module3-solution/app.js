@@ -38,7 +38,7 @@ function FoundItemsDirectiveLink(scope, element, attrs, controller) {
 function FoundItemsDirectiveController() {
   var list = this;
 
-  var list.items = [];
+  list.items = [];
 
  //list.items = narrowit.found;
 
