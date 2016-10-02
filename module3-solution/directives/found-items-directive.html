@@ -1,0 +1,27 @@
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>Dish Name</th>
+        <th>Short Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody ng-repeat="item in dishesFound.foundItems">
+      <tr>
+        <td>{{item.name}}</td>
+        <td>({{item.short_name}})</td>
+        <td>{{item.description}}</td>
+        <td><button class="btn btn-danger" ng-click="dishesFound.dontWantThisOne($index)">
+              Don't Want This One
+            </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+<div class="row" ng-show="dishesFound.noDishes()">
+  <div class="well">
+    <h3>Nothing found</h3>
+  </div>
+</div>
