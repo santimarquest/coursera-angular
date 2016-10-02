@@ -18,7 +18,8 @@ function FoundItemsDirective() {
     controller: FoundItemsDirectiveController,
     controllerAs: 'list',
     bindToController: true,
-    link : FoundItemsDirectiveLink
+    link : FoundItemsDirectiveLink,
+    transclude: true
   };
 
   return ddo;
@@ -28,7 +29,7 @@ function FoundItemsDirectiveLink(scope, element, attrs, controller) {
 
 	scope.$watch('list.items', function () {
 
-		list.items = items;
+	items = list.items;		
     
   });
 
@@ -37,10 +38,6 @@ function FoundItemsDirectiveLink(scope, element, attrs, controller) {
 
 function FoundItemsDirectiveController() {
   var list = this;
-
-  list.items = [];
-
- //list.items = narrowit.found;
 
  list.onRemove = function(index) {
  	list.items.splice(index, 1);
