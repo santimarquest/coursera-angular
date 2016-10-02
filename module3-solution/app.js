@@ -50,7 +50,7 @@ var narrowit = this;
         });
     };
 
-    ctrl.dontWantThisOne = function (index) {
+    narrowit.dontWantThisOne = function (index) {
       narrowit.menuItems.splice(index, 1);
     };
   }
@@ -72,5 +72,5 @@ var narrowit = this;
         });
     };
   }
-  
+
 })();
