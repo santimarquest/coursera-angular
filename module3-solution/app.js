@@ -70,9 +70,11 @@ function MenuSearchService($http, ApiBasePath) {
 	      method: "GET",
 	      url: (ApiBasePath + "/menu_items.json")
 	    }).then(function (result) {
+
+	    	 var items = result.data.menu_items;
   			 var foundItems = [];
 
-	    	 for (var i=0; i < result.length; i++) {
+	    	 for (var i=0; i < items.length; i++) {
 	    	 	var name = result[i].name;
 	    	 	if (name.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1) {
 	    	 		foundItems.push(result[i].name);
