@@ -1,14 +1,13 @@
 (function () {
 'use strict';
 
-angular.module('ShoppingList')
-.controller('MainShoppingListController', MainShoppingListController);
+angular.module('MenuApp')
+.controller('CategoriesController', CategoriesController);
 
-
-MainShoppingListController.$inject = ['ShoppingListService', 'items'];
-function MainShoppingListController(ShoppingListService, items) {
-  var mainlist = this;
-  mainlist.items = items;
+CategoriesController.$inject = ['MenuDataService'];
+function CategoriesController(MenuDataService) {
+  var categorieslist = this;
+  categorieslist.items = MenuDataService.getAllCategories();
 }
 
 })();
