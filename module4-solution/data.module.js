@@ -1,6 +1,6 @@
 (function () {
 'use strict';
 
-angular.module('categories');
+angular.module('data', []);
 
 })();

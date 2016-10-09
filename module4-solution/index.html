@@ -1,31 +1,36 @@
-<!DOCTYPE html>
-<html ng-app='MenuApp'>
+<!doctype html>
+<html lang="en"ng-app="MenuApp">
   <head>
-    <meta charset="utf-8">
+    <title>MenuApp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
-    <title>Restaurant</title>
   </head>
-  <body>
-    <h1>Restaurant</h1>
-
+<body>
+  <div class="container" >
+    <h1>Restaurant</h4>
     <ui-view></ui-view>
+  </div>
 
-    <!-- Libraries -->
-    <script src="lib/angular.min.js"></script>
-    <script src="lib/angular-ui-router.min.js"></script>
+  <!-- libraries -->
+  <script src="lib/angular.min.js"></script>
+  <script src="lib/angular-ui-router.min.js"></script>
 
-    <!-- Modules -->
-    <script src="src/restaurant/categories.module.js"></script>
-     <script src="src/restaurant/data.module.js"></script>
+  <!-- application modules -->
+  <script src="menuapp.module.js"></script>
+  <script src="data.module.js"></script>
 
-    <!-- Routes -->
-    <script src="src/routes.js"></script>
+  <!-- categories component -->
+  <script src="components/categories-component/categories.component.js"></script>
+  <script src="components/categories-component/categories.component.controller.js"></script>
+  <script src="components/items-component/items.component.js"></script>
+  <script src="components/items-component/items.component.controller.js"></script>
 
-    <!-- 'ShoppingList' module artifacts -->
-    <script src="src/restaurant/categories.component.js"></script>
-    <script src="src/restaurant/categories.controller.js"></script>
-    <script src="src/restaurant/menudata.service.js"></script>
-   <!--  <script src="src/restaurant/items.controller.js"></script>  -->
+  <!-- services -->
+  <script src="services/menudata.service.js"></script>
 
-  </body>
+  <!-- routes -->
+  <script src="routes.js"></script>
+
+</body>
 </html>

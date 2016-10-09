@@ -1,0 +1,19 @@
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+      <th>Short Name</th>
+      <th>Name</th>
+      <th>Special Instructions</th>
+      <th>Menu Items</th>
+    </thead>
+    <tbody>
+
+      <tr ng-repeat="category in $ctrl.categories">
+          <td>{{category.short_name}}</td>
+          <td>{{category.name}}</td>
+          <td>{{category.special_instructions}}</td>
+          <td><a ui-sref="items({categoryShortName: category.short_name})" class="btn btn-info btn-sm" role="button">Menu Items</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
