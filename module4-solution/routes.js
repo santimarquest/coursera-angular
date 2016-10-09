@@ -1,41 +1,41 @@
 (function () {
 'use strict';
 
-angular.module('ShoppingList')
-.config(RoutesConfig);
+angular.module('MenuApp')
+.config(MenuRoutesConfig);
 
-RoutesConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
-function RoutesConfig($stateProvider, $urlRouterProvider) {
+MenuRoutesConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
+function MenuRoutesConfig ($stateProvider, $urlRouterProvider) {
 
-  // Redirect to home page if no other URL matches
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/home');
 
-  // *** Set up UI states ***
   $stateProvider
+    .state('home', {
+      url: '/home',
+      templateUrl: 'templates/home.html'
+    })
 
-  // Home page
-  .state('home', {
-    url: '/',
-    templateUrl: 'src/shoppinglist/templates/home.template.html'
-  })
+    .state('categories', {
+      url: '/categories',
+      templateUrl: 'templates/categories.html',
+      controller: 'CategoriesComponentController as $ctrl',
+      resolve: {
+        categories: ['MenuDataService', function (MenuDataService) {
+          return MenuDataService.getAllCategories();
+        }]
+      }
+    })
 
-  // Premade list page
-  .state('mainList', {
-    url: '/main-list',
-    templateUrl: 'src/shoppinglist/templates/main-shoppinglist.template.html',
-    controller: 'MainShoppingListController as mainList',
-    resolve: {
-      items: ['ShoppingListService', function (ShoppingListService) {
-        return ShoppingListService.getItems();
-      }]
-    }
-  })
-
-  .state('mainList.itemDetail', {
-    url: '/item-detail/{itemId}',
-    templateUrl: 'src/shoppinglist/templates/item-detail.template.html',
-    controller: "ItemDetailController as itemDetail"
-  });
+    .state('items', {
+      url: '/items/:categoryShortName',
+      templateUrl: 'templates/items.html',
+      controller: 'ItemsComponentController as $ctrl',
+      resolve: {
+        items: ['$stateParams', 'MenuDataService', function ($stateParams, MenuDataService) {
+          return MenuDataService.getItemsForCategory($stateParams.categoryShortName);
+        }]
+      }
+    });
 
 }
 
