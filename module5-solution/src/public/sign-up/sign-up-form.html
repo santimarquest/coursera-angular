@@ -1,0 +1,79 @@
+<div class="container" id="signup-form">
+    
+    <form name='signupForm' class="form-horizontal" novalidate>
+        
+        <legend>Please, complete the following form in order to sign up for our monthly newsletter!</legend>
+        
+        <!-- First name field -->
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" name="first_name" placeholder="First Name" id="firstName" class="form-control"
+              ng-model="signUpCtrl.user.first_name"
+              required
+              ng-maxlength="20">
+            <span ng-if="signupForm.first_name.$error.maxlength && signupForm.first_name.$touched">
+              First name must not be longer than 20 characters
+            </span>
+        </div>
+
+        <!-- Last name field -->
+        <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" name="last_name" placeholder="Last Name" id="lastName" class="form-control"
+              ng-model="signUpCtrl.user.last_name"
+              required
+              ng-maxlength="20">
+            <span ng-if="signupForm.last_name.$error.maxlength && signupForm.last_name.$touched">
+              Username must not be longer than 20 characters
+            </span>
+        </div>
+          
+        <!-- Email address field -->
+        <div class="form-group">
+            <label for="eMail">Email</label>
+            <input type="email" name="email" placeholder="Email" id="eMail" class="form-control"
+              ng-model="signUpCtrl.user.email"
+              required>
+            <span ng-if="signupForm.email.$invalid && signupForm.email.$touched">
+              Must be a valid email address: handle@domain format
+            </span>
+        </div>
+
+        <!-- Phone number field -->
+        <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="text" name="phone" placeholder="Phone, with format: ###-###-####" id="phone" class="form-control"
+              ng-model="signUpCtrl.user.phone"
+              required
+              pattern="(\d{3})-(\d{3})-(\d{4})">
+            <span ng-if="signupForm.phone.$invalid && signupForm.phone.$touched">
+              Phone must be in the format ###-###-####.
+            </span>
+        </div>
+
+        <!-- Favorite dish field (The menu number is the short_name attribute of each menu item) -->
+        <div class="form-group">
+            <label for="favDish">Favourite Dish</label>
+            <input type="text" name="dish" placeholder="Favourite Dish" id="favDish" class="form-control"
+              ng-model="signUpCtrl.user.favorite_dish"
+              required
+              valid-menu-item>
+            <span ng-show="signupForm.$pending.validMenuItem">Checking Dish Validity...</span>
+            <span ng-show="signupForm.$error.validMenuItem">No such menu number exists!</span>
+        </div>
+        
+        <div class="form-group">
+            <button
+              class="btn btn-primary"
+              ng-disabled="signupForm.$invalid || signupForm.$pending"
+              ng-click="signUpCtrl.submit()">Submit</button>
+        </div>
+            
+
+    </form>
+
+    <div ng-if="signUpCtrl.completed">
+        Your information has been saved.
+    </div>
+    
+</div>

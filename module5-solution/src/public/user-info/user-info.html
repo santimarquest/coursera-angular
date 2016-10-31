@@ -1,0 +1,52 @@
+<div class="container">
+    <div ng-show="userInfoCtrl.user_data_registered">
+        <div class="row">
+            <div class="col-md-12"><h2>User registered information</h2></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">First Name</div>
+            <div class="col-md-6">{{userInfoCtrl.info.first_name}}</div>
+            <div class="col-md-4"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">Last Name</div>
+            <div class="col-md-6">{{userInfoCtrl.info.last_name}}</div>
+            <div class="col-md-4"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">Email</div>
+            <div class="col-md-6">{{userInfoCtrl.info.email}}</div>
+            <div class="col-md-4"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">Phone</div>
+            <div class="col-md-6">{{userInfoCtrl.info.phone}}</div>
+            <div class="col-md-4"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">Favorite Dish</div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        {{ userInfoCtrl.menu_item.name + ' (' + userInfoCtrl.info.favorite_dish + ')' }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <img 
+                            width="200"
+                            height="200"
+                            ng-src="images/menu/{{userInfoCtrl.menu_item.category_short_name}}/{{userInfoCtrl.menu_item.category_short_name}}.jpg">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">{{userInfoCtrl.menu_item.description}}</div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+    <span ng-hide="userInfoCtrl.user_data_registered">
+        Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a>
+    </span>
+</div>
