@@ -6,8 +6,8 @@
         
         <!-- First name field -->
         <div class="form-group col-md-6">
-            <label for="firstName">First Name</label>
-            <input type="text" name="first_name" placeholder="First Name" id="firstName" class="form-control"
+            <label class="col-md-2" for="firstName">First Name</label>
+            <input type="text" name="first_name" placeholder="First Name" id="firstName" class="form-control col-md-6"
               ng-model="signUpCtrl.user.first_name"
               required
               ng-maxlength="20">
@@ -18,8 +18,8 @@
 
         <!-- Last name field -->
         <div class="form-group col-md-6">
-            <label for="lastName">Last Name</label>
-            <input type="text" name="last_name" placeholder="Last Name" id="lastName" class="form-control"
+            <label class="col-md-2" for="lastName">Last Name</label>
+            <input type="text" name="last_name" placeholder="Last Name" id="lastName" class="form-control col-md-6"
               ng-model="signUpCtrl.user.last_name"
               required
               ng-maxlength="20">
