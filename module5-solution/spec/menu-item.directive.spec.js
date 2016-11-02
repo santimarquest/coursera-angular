@@ -9,8 +9,8 @@ describe('validMenuItem directive', function () {
             "price_large":5.0,
             "small_portion_name":"pint",
             "large_portion_name":"quart",
-            "created_at":"2016-10-21T04:01:44.367Z",
-            "updated_at":"2016-10-21T04:01:44.367Z",
+            "created_at":"2016-10-25T22:13:54.127Z",
+            "updated_at":"2016-10-25T22:13:54.127Z",
             "category_short_name":"A",
             "image_present":true
         },
@@ -46,7 +46,7 @@ describe('validMenuItem directive', function () {
 
 
     it('should pass with valid dish', function () {
-        $httpBackend.whenGET("https://girode-course5.herokuapp.com/menu_items/A1.json")
+        $httpBackend.whenGET("https://amt-coursera-spa-angular.herokuapp.com/menu_items/A1.json")
                     .respond(existentShortNameCategoryResponse);
         
         form.favorite_dish.$setViewValue('A1');
@@ -58,7 +58,7 @@ describe('validMenuItem directive', function () {
     });
     
     it('should not pass with an invalid dish', function () {
-        $httpBackend.whenGET("https://girode-course5.herokuapp.com/menu_items/X.json")
+        $httpBackend.whenGET("https://amt-coursera-spa-angular.herokuapp.com/menu_items/X.json")
                     .respond(nonExistentShortNameCategoryResponse);
         
         form.favorite_dish.$setViewValue('X');
