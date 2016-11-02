@@ -28,12 +28,12 @@
             <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-12">
-                        {{ userInfoCtrl.menu_item.name + ' (' + userInfoCtrl.info.favorite_dish + ')' }}
+                        {{ userInfoCtrl.menu_item.name + ' (' + userInfoCtrl.info.favorite_dish.toUpperCase() + ')' }}
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <img 
+                        <img style="border:1px solid white"
                             width="200"
                             height="200"
                             ng-src="images/menu/{{userInfoCtrl.menu_item.category_short_name}}/{{userInfoCtrl.menu_item.category_short_name}}.jpg">
