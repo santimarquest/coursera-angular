@@ -20,10 +20,7 @@ function validMenuItem($q, MenuService){
             return MenuService.getMenuItemForShortName(modelValue)
                               .then(
                                  function (result){
-                                  // I´ll ask for result["error"] existence, but
-                                  // it´s really not necessary. I could do with
-                                  // just $q.resolve();
-                                  return (result["error"])? $q.reject() : $q.resolve();
+                                  return $q.resolve();
                               }, function () {
                                  return $q.reject();
                               });

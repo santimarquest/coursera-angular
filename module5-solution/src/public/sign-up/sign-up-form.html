@@ -12,7 +12,7 @@
               required
               ng-maxlength="20">
             <span ng-if="signupForm.first_name.$error.maxlength && signupForm.first_name.$touched">
-              First name must not be longer than 20 characters
+              First name is requerid and must be no longer than 20 characters
             </span>
         </div>
 
@@ -24,7 +24,7 @@
               required
               ng-maxlength="20">
             <span ng-if="signupForm.last_name.$error.maxlength && signupForm.last_name.$touched">
-              Username must not be longer than 20 characters
+              Username is requerid and must be no longer than 20 characters
             </span>
         </div>
           
@@ -35,7 +35,7 @@
               ng-model="signUpCtrl.user.email"
               required>
             <span ng-if="signupForm.email.$invalid && signupForm.email.$touched">
-              Must be a valid email address: handle@domain format
+              Must be a valid email address
             </span>
         </div>
 
@@ -54,7 +54,7 @@
         <!-- Favorite dish field (The menu number is the short_name attribute of each menu item) -->
         <div class="form-group">
             <label for="favDish">Favourite Dish</label>
-            <input type="text" name="dish" placeholder="Favourite Dish" id="favDish" class="form-control"
+            <input type="text" name="dish" placeholder="My Favourite Dish" id="favDish" class="form-control"
               ng-model="signUpCtrl.user.favorite_dish"
               required
               valid-menu-item>
@@ -73,7 +73,7 @@
     </form>
 
     <div ng-if="signUpCtrl.completed">
-        Your information has been saved.
+        Information saved correctly.
     </div>
     
 </div>

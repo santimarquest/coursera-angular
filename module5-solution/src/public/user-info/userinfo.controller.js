@@ -14,14 +14,6 @@ function UserInfoController(PreferencesService, menuItem) {
   if(userinfo.menu_item) {
     userinfo.user_data_registered = PreferencesService.hasUserDataBeenRegistered();
     userinfo.info = PreferencesService.getRegisteredUserData(); 
-  }
-    
-
-
-  
+  } 
 }
-
-
-
-
 })();
