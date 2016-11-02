@@ -23,7 +23,7 @@ function PreferencesService() {
   };
   
   service.getUserFavouriteDish = function (){
-      return service.user_data.favorite_dish;
+      return service.user_data.favorite_dish.toUpperCase();
   };
 
 }
